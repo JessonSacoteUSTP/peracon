@@ -1,11 +1,11 @@
 // @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:auto_size_text/auto_size_text.dart';
 
 import 'dashboard.dart';
-
 
 class Result extends StatefulWidget {
   final String fromCurr;
@@ -31,16 +31,16 @@ class _ResultState extends State<Result> {
     String from = widget.fromCurr;
     String to = widget.toCurr;
     String uri =
-        "https://api.exchangeratesapi.io/latest?base=$from&symbols=$to";
+        "https://v6.exchangerate-api.com/v6/171460eb4e50c9697c1455e1/latest/$to";
     var response = await http
         .get(Uri.encodeFull(uri), headers: {"Accept": "application/json"});
     var responseBody = json.decode(response.body);
     setState(() {
       finalValue =
-          (double.parse(widget.initialValue) * responseBody['rates'][to])
+          (double.parse(widget.initialValue) * responseBody['conversion_rates'][from])
               .toString();
     });
-    print(responseBody['rates'][to]);
+    print(responseBody['conversion_rates'][from]);
     return "Success";
   }
 
