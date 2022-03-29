@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:peracon/result.dart';
 
-
 class Dashboard extends StatefulWidget {
   @override
   _DashboardState createState() => _DashboardState();
@@ -199,7 +198,7 @@ class _DashboardState extends State<Dashboard> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Result(from, to, initialValue),
+                        builder: (context) => Result(to, from, initialValue),
                       ),
                     );
                   },

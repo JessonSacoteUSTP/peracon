@@ -36,6 +36,13 @@ class _ResultState extends State<Result> {
         .get(Uri.encodeFull(uri), headers: {"Accept": "application/json"});
     var responseBody = json.decode(response.body);
     setState(() {
+  //     finalValue =
+  //         (double.parse(widget.initialValue) * responseBody['conversion_rates'][to])
+  //             .toString();
+  //   });
+  //   print(responseBody['conversation_rates'][to]);
+  //   return "Success";
+  // }
       finalValue =
           (double.parse(widget.initialValue) * responseBody['conversion_rates'][from])
               .toString();
